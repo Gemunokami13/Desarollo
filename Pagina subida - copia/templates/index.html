@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Styles/Style.css">
+    <title>Contelinks</title>
+    <link rel="icon" href="../img/Logo.png" type="image/x-icon">
+    <link rel="icon" href="../img/cust.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="../img/cust.jpg" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <img src="../img/Logo.png" class="imglogo">
+        <li><a href="{{ url_for ('home') }}" class="namelogo">ConteLinks</a></li>
+        <nav class="nubeul">
+            <input type="checkbox" id="checkheader">
+            <ul class="Sec-header">
+                <hr class="hrhead">
+                <li><a href="{{ url_for('juegos') }}">Juegos</a></li>
+                <hr class="hrhead">
+                <li><a href="{{ url_for('animes') }}">Animes</a></li>
+                <hr class="hrhead">
+                <li><a href="{{ url_for('peliculas') }}">Peliculas</a></li>
+                <hr class="hrhead">
+                <li><a href="{{ url_for('series') }}">Series</a></li>
+                <hr class="hrhead">
+                <li><a href="{{ url_for('cursos') }}">Cursos</a></li>
+                <hr class="hrhead">
+            </ul>
+        </nav>
+        <div class="cont">
+            <div class="buscador">
+                <img src="../img/busqueda.png" id="icon-busqueda" onclick="activarbuscador()">
+                <input id="textbuscador" placeholder="Buscar" style="display: none; animation: aparecer 1s forwards; height: 18px ;">
+            </div>
+
+            <label for="checkheader">
+                <img src="../img/icono-hamburguesa_header.png" class="hamburguesaheader">
+            </label>
+        </div>
+   </header>
+
+   <section class="contenido_index">
+        <div class="titulos">
+            <div class="displacement">
+                <h1 class="desplegable" tabindex="0">Descarga Juegos</h1>
+                <ul class="submenu">
+                    <hr style="border: 2px solid black;">
+                    <li class="subitem">
+                        <p class="letras"><span style="color: white;">¿</span>Juegos<span style="color: white;">?</span> Sí, pues puedes descargar juegos sin ningun acortador. <br><br> Nota: Siempre es peligroso descargar juegos de estas formas, sin embargo, se evita el uso de juegos de elamigos debido a su peligrosidad, aunque aun así, ten cuidado, no es seguro descargar juegos en ningún lugar, por ello usa antivirus, no se puede asegurar al 100%, pero la mayoría los he probado y sirven bien sin problemas.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="displacement">
+                <h1 class="desplegable" tabindex="0">Descarga Animes</h1>
+                <ul class="submenu">
+                    <hr style="border: 2px solid black;">
+                    <li class="subitem">
+                        <p class="letras"><span style="color: white;">¿</span>Descargar anime sin tener que pasar molestos acortadores<span style="color: red;">?</span> pues es casi asÍ, unicamente el primer capitulo de cada temporada tiene un acortador corto de menos de 15 segundos. Próximamente se podran ver animes en ConteLinks</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="displacement">
+                <h1 class="desplegable" tabindex="0">Descarga Peliculas</h1>
+                <ul class="submenu">
+                    <hr style="border: 2px solid black;">
+                    <li class="subitem">
+                        <p class="letras">En ConteLinks puedes descargar pelÍculas sin necesidad de pasar ningun acortador, simplemente haces un click en el botón descargar y podrás acceder al link directo. Próximamente se podran ver peliculas en ConteLinks pagina</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="displacement">
+                <h1 class="desplegable" tabindex="0">Descarga Series</h1>
+                <ul class="submenu">
+                    <hr style="border: 2px solid black;">
+                    <li class="subitem">
+                        <p class="letras"><span style="color: rgb(255, 255, 255);">¿</span >Quieres poder guardar tus series favoritas, ya sea en tu computadora o en tu celular<span style="color: rgb(255, 255, 255);">?</span> ConteLinks te facilita eso, simplemente accede a la serie que gustes y busca el link, encontraras todas las temporadas, únicamente debes de saltar un acortador corto y podrás descargar tu capítulo de forma rápida (No duras más de 15 segundos en el acortador). Próximamente se podran ver series en ConteLinks</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="displacement">
+                <h1 class="desplegable" tabindex="0">Descarga Aplicaciones</h1>
+                <ul class="submenu">
+                    <hr style="border: 2px solid black;">
+                    <li class="subitem">
+                        <p class="letras">Actualmente no está disponible, no hay ningún dato a mostrar en esta zona</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+       <!--Las recomendaciones son contenido que en lo personal al creador de la Contlink le gusto
+      -Juegos
+      -animes
+      -Pelis
+      -Series recomendadas
+      -Comentarios
+      -Centro de sugerencias y errores-->
+   </section>
+
+
+    <script src="../Javascript/Java.js"></script>
+
+
+</body>
+</html>

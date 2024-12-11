@@ -1,0 +1,182 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.informacion {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 70px;
+    padding: 20px;
+    background-color: black;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.element_name{
+    text-align: center;
+    color: rgb(0, 255, 255, 0.5);
+    margin-bottom: 10px;
+}
+
+.Img {
+    display: flex;
+    justify-content: center;
+}
+
+.imagen_ajuste{
+    width: 300px;
+}
+
+.all{
+    max-width: 350px;
+    margin: 0 auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display:block;
+    background: rgb(140, 106, 174);
+}
+
+.copiar{
+    max-width: 350px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    justify-content: center;
+    background: rgb(140, 106, 174);
+}
+
+.boton{
+    cursor: pointer;
+    width: 90px;
+    color: white;
+    background: rgb(117, 110, 110);
+    border-radius: 10px;
+    box-shadow: none;
+    outline: none;  /* Para eliminar el contorno predeterminado */
+    border: 2px solid black;
+    margin-bottom: 1px;
+}
+
+.boton:hover{
+    transition: 0.5s;
+    transform: scale(105%);
+    margin-bottom: 5px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.5);
+    color: rgb(41, 38, 38);
+}
+
+.mensaje {
+    color: aquamarine;
+    max-width: 350px;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 1s ease-in-out, max-height 1s ease-in-out; /* Ajusta la duración de la transición para entrada y salida */
+}
+
+.mostrar {
+    opacity: 1;
+    max-height: 200px; /* Puedes ajustar este valor según la altura máxima que prefieras durante la transición */
+    transition: opacity 1s ease-in-out, max-height 1s ease-in-out; /* Ajusta la duración de la transición para entrada y salida cuando está visible */
+}
+
+
+.especificaciones{
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    color: rgb(163, 5, 5);
+    display: flex;
+    justify-content: space-around;
+}
+
+.especificaciones p{
+    color:rgba(255, 255, 255, 0.5);
+}
+
+.descripcion{
+    max-width: 350px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgb(140, 106, 174);
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    align-items: center;
+}
+
+.descripcion1{
+    max-width: 350px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgb(140, 106, 174);
+    border-radius: 0px 10px 0 0;
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.contraseña{
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 5px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.text_pass{
+    color: aqua;
+    font-weight: bold;
+}
+
+.pass{
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.link{
+    max-width: 350px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgb(140, 106, 174);
+    border-radius: 0 0 4px 4px;
+    display: flex;
+    align-items: center;
+    border: solid rgb(29, 29, 29)  2px;
+}
+
+@font-face{
+    font-family: bradley_big ;
+    src: url(../Contenido/BradleyHandITCTT-Bold.ttf);
+}
+
+.link a{
+    color: aqua;
+    font-family: bradley_big;
+    font-size: 20px;
+    display: flex;
+    margin-left: 60px;
+}
+.link a:hover{
+    color: rgb(27, 84, 207);
+    transition: 0.5s;
+}
+.logos{
+    display: flex;
+    max-width: 350px;
+    margin: auto;
+    margin-top: 10px;
+}
+.youtube{
+    max-width: 50px;
+}

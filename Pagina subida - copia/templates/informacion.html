@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Styles/Style.css">
+    <link rel="stylesheet" href="../Styles/Stylepag.css">
+    <link rel="stylesheet" href="../Styles/Stylepersonalizado.css">
+    <title>Descargar - {{ detalles['nombre'] }}</title>
+    <link rel="icon" href="../img/cust.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="../img/cust.jpg" type="image/x-icon">
+</head>
+<body>
+   <header class="headel">
+        <img src="../img/Logo.png" class="imglogo">
+        <li><a href="{{ url_for('home') }}" class="namelogo">ConteLinks</a></li>
+        <nav class="nubeul">
+            <input type="checkbox" id="checkheader">
+            <ul class="Sec-header">
+                <hr class="hrhead">
+                <li><a href="{{ url_for('juegos') }}">Juegos</a></li>
+                <hr class="hrhead">
+                <li><a href="{{ url_for('animes') }}">Animes</a></li>
+                <hr class="hrhead">
+                <li><a href="{{ url_for('peliculas') }}">Peliculas</a></li>
+                <hr class="hrhead">
+                <li><a href="{{ url_for('series') }}">Series</a></li>
+                <hr class="hrhead">
+                <li><a href="{{ url_for('cursos') }}">Cursos</a></li>
+                <hr class="hrhead">
+            </ul>
+        </nav>
+        <div class="cont1">
+            <label for="checkheader">
+                <img src="../img/icono-hamburguesa_header.png" class="hamburguesaheader">
+            </label>
+        </div>
+   </header>
+
+    <!--base peliculas-->
+   <section class="informacion" id="info_pelis" style="display: none;">
+        <div class="element_name">
+            <h2>{{ detalles['nombre'] }}</h2>
+        </div>
+
+        <div class="Img">
+            <img alt = "Descargar {{ detalles['nombre'] }}" src="data:image/jpeg;base64,{{ detalles['imagen_peliculas'] }}" class="imagen_ajuste">
+        </div>
+
+        <div class="especificaciones">
+            <h3> Genero: <p style="margin-left: 5px;">{{ detalles['Genero'] }}</p></h3>
+            <h3> Peso: <p style="margin-left: 0;">{{ detalles['peso'] }}</p></h3>
+        </div>
+        <h3 style="color: aqua; display: flex; justify-content: center;">Titulo</h3>
+        <div class="descripcion">
+            <p>{{ detalles['Descripcion'] }}</p>
+        </div>
+
+        <div class="all">
+            <div class="contraseña">
+                {% if detalles['contraseña'] %}
+                <p class="text_pass">Contraseña: <span class="pass">{{ detalles['contraseña'] }}</span></p>
+                {% else %}
+                <p class="text_pass">Contraseña: <span class="pass">No tiene</span></p>
+                {% endif %}
+            </div>
+
+            {% if detalles['contraseña'] %}
+            <div class="copiar">
+                <button class="boton" onclick="copiarAlPortapapeles()">Copiar Contraseña</button>
+                <input type="text" id="inputContraseña" value="{{ detalles['contraseña'] }}" style="position: absolute; left: -9999px;">
+            </div>
+            <div class="mensaje" id="mensajeCopia">Contraseña copiada al portapapeles</div>
+            {% endif %}
+        </div>
+
+        <div class="link">
+            <p><a href="{{ detalles['Link'] }}" target="_blank">Enlace de descarga</a></p>
+        </div>
+
+        <div class="logos">
+            <a href="https://www.youtube.com/channel/UCF1O16UKYzo-LSCeAOB6l0g" target="_blank">
+                <img src="../img/youtube.png" class="youtube">
+            </a>
+        </div>
+   </section>
+
+
+   <!-- Base juegos -->
+   <section class="informacion" id="info_juegos" style="display: none;">
+        <div class="element_name">
+            <h2>{{ detalles['nombre'] }}</h2>
+        </div>
+
+        <div class="Img">
+            <img alt = "Descargar {{ detalles['nombre'] }}" src="data:image/jpeg;base64,{{ detalles['imagen_juegos'] }}" class="imagen_ajuste">
+        </div>
+
+        <div class="especificaciones">
+            <h3> Genero: <p style="margin-left: 5px;">{{ detalles['genero'] }}</p></h3>
+            <h3> Peso: <p style="margin-left: 0;">{{ detalles['peso'] }}</p></h3>
+            <h3> Dispositivo: <p style="margin-left: 25px;">{{ detalles['dispositivo'] }}</p></h3>
+        </div>
+        <h3 style="color: aqua; display: flex; justify-content: center;">Titulo</h3>
+        <div class="descripcion">
+            <p>{{ detalles['descripcion'] }}</p>
+        </div>
+
+        <div class="link">
+            <p><a href="{{ detalles['link'] }}" target="_blank">Enlace de descarga</a></p>
+        </div>
+
+        <div class="logos">
+            <a href="https://www.youtube.com/channel/UCF1O16UKYzo-LSCeAOB6l0g" target="_blank">
+                <img src="../img/youtube.png" class="youtube">
+            </a>
+        </div>
+    </section>
+
+<!-- base series-->
+    <section class="informacion" id="info_series" style="display: none;">
+        <div class="element_name">
+            <h2>{{ detalles['nombre'] }}</h2>
+        </div>
+
+        <div class="Img">
+            {% if detalles['imagen_series'] %}
+                <img alt="Descargar {{detalles ['nombre'] }}" src="data:image/jpeg;base64,{{ detalles['imagen_series'] }}" class="imagen_ajuste">
+            {% else %}
+                <img src="data:image/jpeg;base64,{{ detalles['imagen_animes'] }}" class="imagen_ajuste">
+            {% endif %}
+        </div>
+
+        <div class="especificaciones">
+            <h3> Genero: <p style="margin-left: 5px;">{{ detalles['Genero'] }}</p></h3>
+            <h3> Idioma: <p style="margin-left: 0;">{{ detalles['Lenguaje'] }}</p></h3>
+            <h3> Temporadas: <p style="margin-left: 25px;">{{ detalles['Temporada'] }}</p></h3>
+        </div>
+
+        <h3 style="color: aqua; display: flex; justify-content: center;">Titulo</h3>
+        <div class="descripcion">
+            <p>{{ detalles['Descripcion'] }}</p>
+        </div>
+
+        <h3 style="color: aqua; display: flex; justify-content: center;">Notas:</h3>
+        <div class="descripcion1">
+            <p>{{ detalles['contenido']|replace('\n', '<br><br>')|safe }}</p>
+        </div>
+
+        <div class="all">
+            <div class="contraseña">
+                {% if detalles['contraseña'] %}
+                <p class="text_pass">Contraseña: <span class="pass">{{ detalles['contraseña'] }}</span></p>
+                {% else %}
+                <p class="text_pass">Contraseña: <span class="pass">No tiene</span></p>
+                {% endif %}
+            </div>
+
+            {% if detalles['contraseña'] %}
+            <div class="copiar">
+                <button class="boton" onclick="copiarAlPortapapelesseries()">Copiar Contraseña</button>
+                <input type="text" id="inputContraseñas" value="{{ detalles['contraseña'] }}" style="position: absolute; left: -9999px;">
+            </div>
+            <div class="mensaje" id="mensajeCopiaseries">Contraseña copiada al portapapeles</div>
+            {% endif %}
+        </div>
+
+        <div class="link">
+            <p><a href="{{ detalles['Link'] }}" target="_blank">Enlace de descarga</a></p>
+        </div>
+        <div class="logos">
+            <a href="https://www.youtube.com/channel/UCF1O16UKYzo-LSCeAOB6l0g" target="_blank">
+                <img src="../img/youtube.png" class="youtube">
+            </a>
+        </div>
+
+    </section>
+
+       <!-- Base cursos -->
+   <section class="informacion" id="info_cursos" style="display: none;">
+        <div class="element_name">
+            <h2>{{ detalles['nombre'] }}</h2>
+        </div>
+
+        <div class="Img">
+            <img src="data:image/jpeg;base64,{{ detalles['imagen_cursos'] }}" class="imagen_ajuste">
+        </div>
+
+        <div class="especificaciones">
+            <h3> Genero: <p style="margin-left: 5px;">{{ detalles['genero'] }}</p></h3>
+        </div>
+        <h3 style="color: aqua; display: flex; justify-content: center;">Titulo</h3>
+        <div class="descripcion">
+            <p>{{ detalles['descripcion']|replace('\n', '<br><br>')|safe }}</p>
+        </div>
+
+        <div class="link">
+            <p><a href="{{ detalles['link'] }}" target="_blank">Enlace de descarga</a></p>
+        </div>
+
+        <div class="logos">
+            <a href="https://www.youtube.com/channel/UCF1O16UKYzo-LSCeAOB6l0g" target="_blank">
+                <img src="../img/youtube.png" class="youtube">
+            </a>
+        </div>
+    </section>
+
+
+    <script src="../Javascript/Java.js"></script>
+
+
+
+</body>
+</html>

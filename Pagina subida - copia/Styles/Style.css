@@ -1,0 +1,336 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+
+}
+
+@font-face {
+    font-family: bradley;
+    src: url("../Contenido/Bradleys\ Pen.ttf") format("truetype");
+
+ }
+
+header{
+    width: 100%;
+    height: 70px;
+    background-color: rgb(22, 13, 36);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position:fixed;
+    top: 0;
+    z-index: 1;
+}
+
+.hrhead{
+    display: none;
+}
+
+.nubeul{
+    width: 50vw;
+    min-width: fit-content;
+    display: flex;
+    justify-content: end;
+    position: static;
+}
+
+.imglogo{
+    width: 100px;
+}
+
+.namelogo{
+    padding: 0px 0px 0px 0px;
+    font-family: bradley;
+    font-size: 30px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-right: 3vw;
+}
+
+.namelogo:hover{
+    transition: all 0.5s;
+    color: white;
+}
+
+.Sec-header{
+    display: flex;
+    gap: 2rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.5rem;
+}
+
+.Sec-header a{
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.Sec-header a:hover{
+    transition: all 0.7s;
+    color: white;
+}
+.header #icon-busqueda{    
+    display: flex;
+    justify-content: end;
+}
+
+
+#icon-busqueda{
+    width: 30px;
+    margin-left: 8vw;
+    margin-right: 1vw;
+    cursor: pointer;
+}
+
+.buscador{
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+}
+
+@keyframes aparecer{
+    from{
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.hamburguesaheader{
+    width: 30px;
+    display: none;
+    cursor: pointer;
+}
+
+#checkheader{
+    display: none;
+}
+
+body{
+    background-image:url(../img/fondo.jpg) ;
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.contenido_index{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.titulos{
+    width: 50%;
+    height: auto;
+    display: block;
+    margin: auto;
+    background: rgb(0, 0, 0, 0.2);
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.displacement{
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.4);
+    border: 5px solid;
+    border-radius: 15px;
+    display: block;
+    cursor: pointer;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.displacement h1{
+    display: flex;
+    justify-content: center;
+}
+.displacement h1:hover{
+    color:wheat;
+    transition: 0.5s;
+}
+
+.submenu {
+    display: none;
+    opacity: 0;
+}
+
+.submenu.visible {
+    display: block;
+    animation:fade-in 0.5s;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.letras{
+    background: rgb(238, 130, 238, 0.3); 
+    font-family: cursive;
+}
+@keyframes fade-in{
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 1200px) {
+    .imglogo{
+        width: 90px;
+    }
+    .namelogo{
+        font-size: 28px;
+    }
+    .nubeul{
+        width: 30vw;
+    }
+    .Sec-header a{
+        font-size: 1.4rem;
+    }
+    #icon-busqueda{
+        margin-left: 5vw;
+        width: 28px;
+    }
+    #textbuscador{
+        width: 135px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .imglogo{
+        width: 80px;
+    }
+    .namelogo{
+        font-size: 26px;
+    }
+    .nubeul{
+        width: 20vw;  
+    }
+    .Sec-header a{
+        font-size: 1rem;
+    }
+    #icon-busqueda{
+        margin-left: 2vw;
+        width: 25px;
+    }
+    #textbuscador{
+        width: 120px;
+    }
+}
+
+@media (max-width: 870px) {
+
+    .cont{
+        display: inline-flex;
+        width: 100%;
+        height: 70px;
+        align-items: center;
+    }
+
+    .cont1{
+        display: flex;
+        width: 100%;
+        height: 70px;
+        justify-content: right;
+        align-items: center;  
+    }
+    .buscador{
+        justify-content: center;
+    }
+    .hamburguesaheader{
+        width: 25px;
+        display: flex;
+        background: rgb(118, 8, 133);
+        position: sticky;
+        margin-left:30px ;
+        margin-right: 10px;
+        top: 20px;
+        z-index: 10;
+    }
+    #icon-busqueda{
+        margin-left: 0;
+        width: 25px;
+        height: 25px;
+    }
+
+    .namelogo{
+        margin-right: 0;
+    }
+
+    .Sec-header{
+        position: fixed;
+        display: block;
+        width:30% ;
+        height: 146px;
+        top: 100px;
+        right: -50%;
+        text-align: center;
+        transition: all .5s;  
+        background:rgb(22, 13, 36)
+    }
+
+    .Sec-header a{
+        font-size: 1rem;
+    }
+
+    .hrhead{
+        display: block;
+    }
+
+    #checkheader:checked ~ .Sec-header{
+        right: 0;
+        top: 100px;
+    }
+    .letras{
+        font-size: 1rem;
+    }
+    .desplegable{
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .desplegable{
+        font-size: 1.5rem;
+    }
+    .letras{
+        font-size: 1rem;
+    }
+    .titulos{
+        width: 80%;
+        height: auto;
+        display: block;
+        margin: auto;
+        background: rgb(0, 0, 0, 0.2);
+        justify-content: center;
+        margin-top: 225px;
+    }
+    
+    .displacement{
+        margin-top: 20px;
+        background: rgba(255, 255, 255, 0.4);
+        border: 5px solid;
+        border-radius: 15px;
+        display: block;
+        cursor: pointer;
+        justify-content: center;
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+
+    body{
+        background-image:url(../img/background.jpg) ;
+        width: 100%;
+        height: 100%;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+}

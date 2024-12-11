@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Styles/Style.css">
+    <link rel="stylesheet" href="../Styles/Stylepag.css">
+    <title>Peliculas</title>
+    <link rel="icon" href="../img/cust.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="../img/cust.jpg" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <img src="../img/Logo.png" class="imglogo">
+        <li><a href="{{ url_for('home') }}" class="namelogo">ConteLinks</a></li>
+        <nav class="nubeul">
+            <input type="checkbox" id="checkheader">
+            <ul class="Sec-header">
+                <hr class="hrhead">
+                <li><a href="{{ url_for('juegos') }}">Juegos</a></li>
+                <hr class="hrhead">
+                <li><a href="{{ url_for('animes') }}">Animes</a></li>
+                <hr class="hrhead">
+                <li><a href="{{ url_for('peliculas') }}">Peliculas</a></li>
+                <hr class="hrhead">
+                <li><a href="{{ url_for('series') }}">Series</a></li>
+                <hr class="hrhead">
+                <li><a href="{{ url_for('cursos') }}">Cursos</a></li>
+                <hr class="hrhead">
+            </ul>
+        </nav>
+        <div class="cont">
+            <form action="/peliculas" method="get" class="buscador">
+                <div class="buscador">
+                    <img src="../img/busqueda.png" id="icon-busqueda" onclick="activarbuscador()">
+                    <input id="textbuscador" name="nombre" placeholder="Buscar" style="animation: aparecer 1s forwards; height: 18px;" autocomplete="off">
+                </div>
+            </form>
+
+            <label for="checkheader">
+                <img src="../img/icono-hamburguesa_header.png" class="hamburguesaheader">
+            </label>
+        </div>
+   </header>
+
+   <section class="agradecimiento">
+       <div class="posision_logo_cate">
+            <label for="check">
+                <img src="../img/icono-hamburguesa.png" class="img_categoria">
+            </label>
+            <p>Categorias</p>
+        </div>
+        <p class="gracias">Gracias por preferir ConteLinks</p>
+   </section>
+
+   <section class="sec_categorias">
+
+        <input type="checkbox" id="check">
+
+        <ul class="categoria">
+            <h2 class="titulo_2">Categorias de Películas</h2>
+            <hr class="linea_cat">
+            <li><a href="{{ url_for('peliculas', genero='Terror') }}">Terror</a></li>
+            <hr class="linea_cat">
+            <li><a href="{{ url_for('peliculas', genero='Informatica') }}">Tecnologia</a></li>
+            <hr class="linea_cat">
+            <li><a href="{{ url_for('peliculas', genero='Poderes') }}">Poderes</a></li>
+            <hr class="linea_cat">
+            <li><a href="{{ url_for('peliculas', genero='Acción') }}">Acción</a></li>
+            <hr class="linea_cat">
+            <li><a href="{{ url_for('peliculas', genero='Aventura') }}">Aventura</a></li>
+            <hr class="linea_cat">
+            <li><a href="{{ url_for('peliculas', genero='Deporte') }}">Deportes</a></li>
+            <hr class="linea_cat">
+            <li><a href="{{ url_for('peliculas', genero='Magia') }}">Magia</a></li>
+            <hr class="linea_cat">
+        </ul>
+   </section>
+
+   <section class="espacio">
+    </section>
+
+    <h1 {% if cantidad_pelis == 0 %} style="display: none;" {% endif %}>Descarga peliculas link directo</h1>
+    <div class="centered-message" {% if cantidad_pelis == 0 %} style="display: block;" {% else %} style="display: none;" {% endif %}>
+         <h1>
+             No se encontró ningún elemento. Busca otro elemento o presiona "Peliculas". Recargar la página no funcionará.
+         </h1>
+     </div>
+
+   <section class="cont_general">
+        <div class="fila_1">
+            {% for peli in pelis %}
+            <div class="imgs">
+                <a href="/informacion/{{ peli[0] }}?tipo=peliculas" onmouseover="loadHighQualityImage(this)">
+                    <img src="data:image/jpeg;base64,{{ peli[1] }}" id="low-quality-img" loading"lazy">
+                </a>
+                <div class="detalles">
+                    <div class="nombre">
+                        <h3>{{ peli[0]}}</h3>
+                    </div>
+                    <div class="extra">
+                        <p> Genero: <br> <span class="genero">{{ peli[4] }}</span></p>
+                    </div>
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+   </section>
+   <div class="pagination">
+        {% if number_page > 1 %}
+        <div class="contenedor_pagination">
+            <a href="/peliculas?page={{ number_page - 1 }}" class="pagination_elements">{{ number_page - 1}}</a>
+        </div>
+        {% endif %}
+        {% if pelis %}
+        <div class="contenedor_pagination1">
+            <span class="pagination_elements1">Pag {{ number_page }}</span>
+        </div>
+        {% endif %}
+        {% if pelis and pelis|length == datos_pagina %}
+        <div class="contenedor_pagination">
+            <a href="/peliculas?page={{ number_page + 1 }}" class="pagination_elements">{{ number_page +1 }}</a>
+        </div>
+        {% endif %}
+    </div>
+
+    <script src="../Javascript/Java.js"></script>
+</body>
+</html>
